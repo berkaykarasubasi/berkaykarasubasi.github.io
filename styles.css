@@ -130,9 +130,8 @@ body::before{
 	width: clamp(220px, 22vw, 260px);
 	height: clamp(220px, 22vw, 260px);
 	border-radius:22px;
-	margin: 6px auto 24px auto; /* isim/ünvanı aşağı çekmek için alt boşluk arttı */
-	background: radial-gradient(circle at 35% 30%, #2b2f33, #14181b);
-	/* Yerine portre eklenecekse: background-image:url('img/profile.jpg'); object-fit:cover; */
+	margin: 6px auto 24px auto; 
+	background-image:url('assets/profile.jpg'); object-fit:cover; background-size: cover; background-position: center;
 }
 .profile-card__name{
 	margin: 0 0 8px 0;
@@ -496,6 +495,19 @@ body::before{
 	width:100%;
 	height:auto;
 	filter: drop-shadow(0 10px 30px rgba(0,0,0,0.35));
+}
+
+.sm-detail__banner{
+	max-width: 1300px;
+	margin: clamp(18px, 4vw, 36px) auto;
+	padding-inline: clamp(12px, 3vw, 20px);
+}
+.sm-detail__banner img{
+	width:100%;
+	height:auto;
+	display:block;
+	border-radius:18px;
+	box-shadow: 0 24px 40px rgba(0,0,0,0.35);
 }
 
 @media (max-width: 900px){
