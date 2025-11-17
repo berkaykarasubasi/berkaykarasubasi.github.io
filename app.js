@@ -139,6 +139,97 @@
 	});
 })();
 
+// Slider: Yatay kaydırmalı galeriler (prev/next, teker, klavye)
+(function initHorizontalSliders(){
+	const sliderSections = document.querySelectorAll('.sm-gallery--slider');
+	if (!sliderSections.length) return;
+
+	sliderSections.forEach(section => {
+		const grid = section.querySelector('.sm-gallery__grid');
+		if (!grid) return;
+
+		const prevBtn = section.querySelector('.sm-slider-btn--prev');
+		const nextBtn = section.querySelector('.sm-slider-btn--next');
+		const autoplayEnabled = section.dataset.autoplay !== 'false';
+		const interval = parseInt(section.dataset.interval, 10) || 7000;
+		let autoplayTimer = null;
+		const hasOverflow = () => (grid.scrollWidth - grid.clientWidth) > 16;
+		const resizeObserver = new ResizeObserver(() => {
+			if (!hasOverflow()){
+				stopAutoplay();
+				grid.scrollTo({ left: 0 });
+			}else{
+				startAutoplay();
+			}
+		});
+		resizeObserver.observe(grid);
+
+		const getStep = () => Math.max(240, Math.min(grid.clientWidth * 0.9, 600));
+
+		function scrollByStep(direction){
+			const step = getStep() * (direction === 'next' ? 1 : -1);
+			grid.scrollBy({ left: step, behavior: 'smooth' });
+		}
+
+		function goNextAuto(){
+			if (!hasOverflow()) return;
+			const maxScroll = grid.scrollWidth - grid.clientWidth;
+			const nearEnd = grid.scrollLeft >= (maxScroll - 12);
+			if (nearEnd){
+				grid.scrollTo({ left: 0, behavior: 'smooth' });
+			}else{
+				scrollByStep('next');
+			}
+		}
+
+		function stopAutoplay(){
+			if (autoplayTimer){
+				clearInterval(autoplayTimer);
+				autoplayTimer = null;
+			}
+		}
+
+		function startAutoplay(){
+			if (!autoplayEnabled || !hasOverflow()) return;
+			stopAutoplay();
+			autoplayTimer = setInterval(goNextAuto, interval);
+		}
+
+		prevBtn && prevBtn.addEventListener('click', () => {
+			scrollByStep('prev');
+			startAutoplay();
+		});
+		nextBtn && nextBtn.addEventListener('click', () => {
+			scrollByStep('next');
+			startAutoplay();
+		});
+
+		// Fare tekeri ile yatay kaydırma (dikey tekeri yataya map’le)
+		grid.addEventListener('wheel', (e) => {
+			// trackpad yatay hareketini bozma
+			const absX = Math.abs(e.deltaX);
+			const absY = Math.abs(e.deltaY);
+			if (absX > absY) return;
+			if (absY < 2) return; // ufak jitter’ı yoksay
+			e.preventDefault();
+			grid.scrollBy({ left: e.deltaY, behavior: 'smooth' });
+		}, { passive: false });
+
+		// Klavye ok tuşları (bölüm odaktayken)
+		section.tabIndex = 0;
+		section.addEventListener('keydown', (e) => {
+			if (e.key === 'ArrowRight') { e.preventDefault(); scrollByStep('next'); }
+			if (e.key === 'ArrowLeft')  { e.preventDefault(); scrollByStep('prev'); }
+		});
+
+		section.addEventListener('mouseenter', stopAutoplay);
+		section.addEventListener('mouseleave', startAutoplay);
+		section.addEventListener('focusin', stopAutoplay);
+		section.addEventListener('focusout', startAutoplay);
+		startAutoplay();
+	});
+})();
+
 // 6.png - Dikey hikâye kartları
 (function initSmStories(){
 	if (!gsap || !ScrollTrigger) return;
@@ -150,6 +241,112 @@
 		duration: 0.75,
 		ease: 'power3.out',
 		scrollTrigger: { trigger: '.sm-stories__grid', start: 'top 75%' }
+	});
+})();
+
+
+// Poster & Broşür sliderı (full width, autoplay + manuel kontrol)
+(function initPrintSlider(){
+	const slider = document.querySelector('.print-slider');
+	if (!slider) return;
+
+	const track = slider.querySelector('.print-slider__track');
+	const slides = Array.from(track.children);
+	if (!slides.length) return;
+
+	const prevBtn = slider.querySelector('.print-slider__btn--prev');
+	const nextBtn = slider.querySelector('.print-slider__btn--next');
+	const autoplayEnabled = slider.dataset.autoplay !== 'false';
+	const interval = parseInt(slider.dataset.interval, 10) || 6000;
+	let currentIndex = 0;
+	let autoplayTimer = null;
+
+	function updateSlidePosition(){
+		const offset = -currentIndex * slider.clientWidth;
+		track.style.transform = `translateX(${offset}px)`;
+	}
+
+	function goTo(index){
+		const total = slides.length;
+		currentIndex = (index + total) % total;
+		updateSlidePosition();
+	}
+
+	function next(){ goTo(currentIndex + 1); }
+	function prev(){ goTo(currentIndex - 1); }
+
+	function stopAutoplay(){
+		if (autoplayTimer){
+			clearInterval(autoplayTimer);
+			autoplayTimer = null;
+		}
+	}
+
+	function startAutoplay(){
+		if (!autoplayEnabled) return;
+		stopAutoplay();
+		autoplayTimer = setInterval(next, interval);
+	}
+
+	prevBtn && prevBtn.addEventListener('click', () => {
+		prev();
+		startAutoplay();
+	});
+	nextBtn && nextBtn.addEventListener('click', () => {
+		next();
+		startAutoplay();
+	});
+
+	slider.addEventListener('mouseenter', stopAutoplay);
+	slider.addEventListener('mouseleave', startAutoplay);
+	window.addEventListener('resize', () => updateSlidePosition());
+
+	updateSlidePosition();
+	startAutoplay();
+})();
+
+(function initFloatingNav(){
+	const nav = document.querySelector('.floating-nav');
+	if (!nav) return;
+
+	const toggle = nav.querySelector('.floating-nav__toggle');
+	const links = nav.querySelectorAll('.floating-nav__links a');
+
+	nav.classList.add('is-visible');
+
+	const collapse = () => {
+		if (!nav.classList.contains('is-open')) return;
+		nav.classList.remove('is-open');
+		toggle && toggle.setAttribute('aria-expanded', 'false');
+	};
+
+	window.addEventListener('scroll', collapse, { passive: true });
+
+	toggle && toggle.addEventListener('click', () => {
+		const willOpen = !nav.classList.contains('is-open');
+		nav.classList.toggle('is-open', willOpen);
+		toggle.setAttribute('aria-expanded', String(willOpen));
+	});
+
+	links.forEach(link => {
+		link.addEventListener('click', collapse);
+	});
+})();
+
+(function initScrollTop(){
+	const btn = document.querySelector('.scroll-top');
+	if (!btn) return;
+
+	const updateState = () => {
+		const shouldShow = window.scrollY > 400;
+		btn.classList.toggle('is-visible', shouldShow);
+	};
+
+	updateState();
+	window.addEventListener('scroll', updateState, { passive: true });
+
+	btn.addEventListener('click', () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 	});
 })();
 

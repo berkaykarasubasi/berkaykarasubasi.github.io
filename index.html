@@ -7,10 +7,31 @@
 		<meta name="description" content="Berkay Karasubaşı grafik tasarım portfolyo 2025">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Anton&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
+		<nav class="floating-nav" aria-label="Site navigasyonu">
+			<div class="floating-nav__brand">
+				<span class="floating-nav__mark">BK</span>
+				<span class="floating-nav__label">Portfolyo</span>
+			</div>
+			<button class="floating-nav__toggle" type="button" aria-expanded="false" aria-controls="floating-nav-links">
+				<span class="sr-only">Navigasyonu aç/kapat</span>
+				<span class="floating-nav__line"></span>
+				<span class="floating-nav__line"></span>
+				<span class="floating-nav__line"></span>
+			</button>
+			<ul class="floating-nav__links" id="floating-nav-links">
+				<li><a href="#hero">Merhaba</a></li>
+				<li><a href="#hello">Kişisel Bilgiler</a></li>
+				<li><a href="#contents">İçerik</a></li>
+				<li><a href="#sosyal-medya">Sosyal Medya</a></li>
+				<li><a href="#kurumsal-kimlik">Kurumsal</a></li>
+				<li><a href="#logolar">Logolar</a></li>
+				<li><a href="#poster-brosur">Poster</a></li>
+			</ul>
+		</nav>
 		<!-- Kapak / 1.png -->
 		<header class="hero" id="hero">
 			<div class="hero__inner">
@@ -113,13 +134,13 @@
 					<a class="content-card" href="#sosyal-medya">
 						<span class="content-card__num">01</span>
 						<h3 class="content-card__title">Sosyal Medya</h3>
-						<p class="content-card__desc">Strateji, içerik üretimi ve performans optimizasyonu. Referanslar: Loveart Beauty Center, Emerald Aesthetic Turkey, FZYOGOLD, Meskem Eğitim ve Danışmanlık, Psk. Melih Can Durgun, Psk. Büşra Bulut, SCD Çevre Danışmanlık.</p>
+						<p class="content-card__desc">Strateji, içerik üretimi ve performans optimizasyonu. Referanslar: Loveart Beauty Center, Emerald Aesthetic Turkey, FZYOGOLD, Meskem Eğitim ve Danışmanlık, Psk. Melih Can Durgun, Psk. Büşra Bulut.</p>
 						<span class="content-card__arrow">→</span>
 					</a>
 					<a class="content-card" href="#kurumsal-kimlik">
 						<span class="content-card__num">02</span>
 						<h3 class="content-card__title">Marka & Kurumsal Kimlik</h3>
-						<p class="content-card__desc">Logo, renk paleti, tipografi ve kurumsal kimlik kılavuzu. Referanslar: Loveart Beauty Center, Emerald Aesthetic Turkey, Meskem Eğitim ve Danışmanlık.</p>
+						<p class="content-card__desc">Logo, renk paleti, tipografi ve kurumsal kimlik kılavuzu. Referanslar: Loveart Beauty Center, Emerald Aesthetic Turkey.</p>
 						<span class="content-card__arrow">→</span>
 					</a>
 					<a class="content-card" href="#logo">
@@ -153,13 +174,15 @@
 		<!-- 4.png / Sosyal Medya - Loveart -->
 		<section class="sm-detail" id="sosyal-medya">
 			<div class="sm-detail__inner">
-				<header class="sm-detail__header">
-					<h2 class="sm-detail__title">Sosyal Medya</h2>
-					<span class="sm-detail__badge">01</span>
+				<header class="brand-identity__header">
+					<div>
+						<p class="brand-identity__eyebrow">Sosyal Medya</p>
+						<h2 class="sm-detail__client">Loveart Beauty Center</h2>
+					</div>
+					<span class="brand-identity__badge">01</span>
 				</header>
 				<div class="sm-detail__body">
 					<div class="sm-detail__text">
-						<h3 class="sm-detail__client">Loveart Beauty Center</h3>
 						<p>
 							Loveart Beauty Center, modern güzellik anlayışını ileri teknolojiyle buluşturan yenilikçi bir bakım ve estetik merkezidir. Cilt bakımı, bölgesel incelme, kalıcı makyaj ve kişiye özel güzellik çözümleriyle Loveart Beauty Center, ziyaretçilerine benzersiz bir bakım deneyimi sunar.
 						</p>
@@ -167,7 +190,7 @@
  							Profesyonel uzman kadrosu ve yüksek standartlardaki hizmet yaklaşımı ile Loveart, güzelliği sanatsal bir dokunuşla yeniden yorumlar.
  						</p>
  						<div class="sm-detail__logo">
- 							<img src="assets/loveart-logo.png" alt="Loveart Beauty Center Logo">
+ 							<img src="assets/LOVEARTlogo.png" alt="Loveart Beauty Center Logo">
  						</div>
 					</div>
 				</div>
@@ -178,27 +201,33 @@
 		</section>
 
 		<!-- 5.png / Sosyal Medya Kart Galerisi -->
-		<section class="sm-gallery" id="sm-gallery-loveart">
-			<div class="sm-gallery__inner">
-				<div class="sm-gallery__grid">
+		<section class="sm-gallery sm-gallery--slider" id="sm-gallery-loveart" data-autoplay="true" data-interval="3000">
+			<div class="sm-gallery__panel">
+				<div class="sm-gallery__inner">
+					<div class="sm-gallery__grid">
 					<figure class="sm-shot" data-label="01">
 						<img src="assets/loveart-1.jpg" alt="Loveart sosyal medya görseli 01" loading="lazy">
 					</figure>
 					<figure class="sm-shot" data-label="02">
-						<img src="assets/sm-loveart-02.jpg" alt="Loveart sosyal medya görseli 02" loading="lazy">
+						<img src="assets/loveart-2.jpg" alt="Loveart sosyal medya görseli 02" loading="lazy">
 					</figure>
 					<figure class="sm-shot" data-label="03">
-						<img src="assets/sm-loveart-03.jpg" alt="Loveart sosyal medya görseli 03" loading="lazy">
+						<img src="assets/loveart-3.jpg" alt="Loveart sosyal medya görseli 03" loading="lazy">
 					</figure>
 					<figure class="sm-shot" data-label="04">
-						<img src="assets/sm-loveart-04.jpg" alt="Loveart sosyal medya görseli 04" loading="lazy">
+						<img src="assets/loveart-4.jpg" alt="Loveart sosyal medya görseli 04" loading="lazy">
 					</figure>
 					<figure class="sm-shot" data-label="05">
-						<img src="assets/sm-loveart-05.jpg" alt="Loveart sosyal medya görseli 05" loading="lazy">
+						<img src="assets/loveart-5.jpg" alt="Loveart sosyal medya görseli 05" loading="lazy">
 					</figure>
 					<figure class="sm-shot" data-label="06">
-						<img src="assets/sm-loveart-06.jpg" alt="Loveart sosyal medya görseli 06" loading="lazy">
+						<img src="assets/loveart-6.jpg" alt="Loveart sosyal medya görseli 06" loading="lazy">
 					</figure>
+				</div>
+				<div class="sm-slider-controls" aria-label="Galeri gezinme kontrolleri">
+					<button class="sm-slider-btn sm-slider-btn--prev" type="button" aria-label="Sola kaydır">←</button>
+					<button class="sm-slider-btn sm-slider-btn--next" type="button" aria-label="Sağa kaydır">→</button>
+				</div>
 				</div>
 			</div>
 		</section>
@@ -207,13 +236,16 @@
 		<!-- 7.png / Sosyal Medya - Emerald Aesthetic Turkey -->
 		<section class="sm-detail sm-detail--emerald" id="sosyal-medya-emerald">
 			<div class="sm-detail__inner">
-				<header class="sm-detail__header">
-					<h2 class="sm-detail__title">Sosyal Medya</h2>
-					<span class="sm-detail__badge">02</span>
+				<header class="brand-identity__header">
+					<div>
+						<p class="brand-identity__eyebrow">Sosyal Medya</p>
+						<h2 class="sm-detail__client">Emerald Aesthetic Turkey</h2>
+					</div>
+					<span class="brand-identity__badge">02</span>
 				</header>
 				<div class="sm-detail__body">
 					<div class="sm-detail__text">
-						<h3 class="sm-detail__client">Emerald Aesthetic Turkey</h3>
+
 						<p>
 							Emerald Aesthetic Turkey, modern tıp teknolojileriyle estetik çözümleri bir araya getiren kapsamlı bir medikal estetik merkezidir. Yüz ve vücut estetiği, cilt yenileme uygulamaları ve kişiye özel bakım protokolleriyle Emerald, uluslararası standartlarda güvenli, etkili ve doğal sonuçlar sunar.
 						</p>
@@ -221,39 +253,318 @@
 							Uzman hekim kadrosu ve ileri seviye altyapısıyla Emerald Aesthetic Turkey, sağlık ve estetiği bir arada deneyimlemek isteyenler için ayrıcalıklı bir merkezdir.
 						</p>
 						<div class="sm-detail__logo">
-							<img src="assets/emerald-logo.png" alt="Emerald Aesthetic Turkey Logo">
+							<img src="assets/emeraldlogo.png" alt="Emerald Aesthetic Turkey Logo">
 						</div>
+					</div>
+				</div>
+				<div class="sm-detail__banner">
+					<img src="assets/emerald-banner.webp" alt="Emerald Aesthetic Turkey kampanya görseli">
+				</div>
+			</div>
+		</section>
+
+				<!-- Sosyal Medya - Emerald Aesthetic Turkey -->
+				<section class="sm-gallery sm-gallery--slider" id="sm-gallery-loveart" data-autoplay="true" data-interval="3000">
+					<div class="sm-gallery__panel">
+						<div class="sm-gallery__inner">
+							<div class="sm-gallery__grid">
+							<figure class="sm-shot" data-label="01">
+								<img src="assets/sm-emerald-01.jpg" alt="emerald sosyal medya görseli 01" loading="lazy">
+							</figure>
+							<figure class="sm-shot" data-label="02">
+								<img src="assets/sm-emerald-02.jpg" alt="emerald sosyal medya görseli 02" loading="lazy">
+							</figure>
+							<figure class="sm-shot" data-label="03">
+								<img src="assets/sm-emerald-03.jpg" alt="emerald sosyal medya görseli 03" loading="lazy">
+							</figure>
+							<figure class="sm-shot ozel-gorsel" data-label="04">
+								<img src="assets/sm-emerald-04.jpg" alt="emerald sosyal medya görseli 04" loading="lazy">
+							</figure>
+							<figure class="sm-shot ozel-gorsel" data-label="05">
+								<img src="assets/sm-emerald-05.jpg" alt="emerald sosyal medya görseli 05" loading="lazy">
+							</figure>
+							<figure class="sm-shot ozel-gorsel" data-label="06">
+								<img src="assets/sm-emerald-06.jpg" alt="emerald sosyal medya görseli 06" loading="lazy">
+							</figure>
+						</div>
+						<div class="sm-slider-controls" aria-label="Galeri gezinme kontrolleri">
+							<button class="sm-slider-btn sm-slider-btn--prev" type="button" aria-label="Sola kaydır">←</button>
+							<button class="sm-slider-btn sm-slider-btn--next" type="button" aria-label="Sağa kaydır">→</button>
+						</div>
+					</div>
+					</div>
+				</section>
+
+			<!-- Sosyal Medya - Meskom Eğitim ve Danışmanlık -->
+			<section class="sm-detail sm-detail--emerald" id="sosyal-medya-emerald">
+				<div class="sm-detail__inner">
+					<header class="brand-identity__header">
+						<div>
+							<p class="brand-identity__eyebrow">Sosyal Medya</p>
+							<h2 class="sm-detail__client">Meskom Eğitim ve Danışmanlık</h2>
+						</div>
+						<span class="brand-identity__badge">03</span>
+					</header>
+					<div class="sm-detail__body">
+						<div class="sm-detail__text">
+							<p>
+								Milli Eğitim Bakanlığı, Ulaştırma ve Altyapı Bakanlığı ve Sağlık Bakanlığı tarafından yetkilendirilmiş olup bu sektörlerde tam koordinasyonla hizmet vermektedir. Hem kurumsal eğitimler hem kişisel gelişim programları hem de belgelendirme çözümleriyle Meskom, bilgi-odaklı, ölçülebilir ve profesyonel bir gelişim yolculuğu sunar.
+							</p>
+							<div class="sm-detail__logo">
+								<img src="assets/meskomlogo.png" alt="Meskom Eğitim ve Danışmanlık Logo">
+							</div>
+						</div>
+					</div>
+					<div class="sm-detail__banner">
+						<img src="assets/meskom-banner.webp" alt="Meskom Eğitim ve Danışmanlık kampanya görseli">
+					</div>
+				</div>
+			</section>
+	
+					<!-- Meskom.png / Sosyal Medya Kart Galerisi -->
+					<section class="sm-gallery sm-gallery--slider" id="sm-gallery-loveart" data-autoplay="true" data-interval="3000">
+						<div class="sm-gallery__panel">
+							<div class="sm-gallery__inner">
+								<div class="sm-gallery__grid">
+									<figure class="sm-shot" data-label="01">
+										<img src="assets/sm-meskom-01.jpg" alt="Meskom sosyal medya görseli 01" loading="lazy">
+									</figure>
+									<figure class="sm-shot" data-label="02">
+										<img src="assets/sm-meskom-02.jpg" alt="Meskom sosyal medya görseli 02" loading="lazy">
+									</figure>
+									<figure class="sm-shot" data-label="03">
+										<img src="assets/sm-meskom-03.jpg" alt="Meskom sosyal medya görseli 03" loading="lazy">
+									</figure>
+									<figure class="sm-shot ozel-gorsel" data-label="04">
+										<img src="assets/sm-meskom-04.jpg" alt="Meskom sosyal medya görseli 04" loading="lazy">
+									</figure>
+									<figure class="sm-shot ozel-gorsel" data-label="05">
+										<img src="assets/sm-meskom-05.jpg" alt="Meskom sosyal medya görseli 05" loading="lazy">
+									</figure>
+									<figure class="sm-shot ozel-gorsel" data-label="06">
+										<img src="assets/sm-meskom-06.jpg" alt="Meskom sosyal medya görseli 06" loading="lazy">
+									</figure>
+								</div>
+								<div class="sm-slider-controls" aria-label="Galeri gezinme kontrolleri">
+									<button class="sm-slider-btn sm-slider-btn--prev" type="button" aria-label="Sola kaydır">←</button>
+									<button class="sm-slider-btn sm-slider-btn--next" type="button" aria-label="Sağa kaydır">→</button>
+								</div>
+							</div>
+						</div>
+					</section>
+
+			<!--Sosyal Medya - Purecontact -->
+						<section class="sm-detail sm-detail--emerald" id="sosyal-medya-emerald">
+							<div class="sm-detail__inner">
+								<header class="brand-identity__header">
+									<div>
+										<p class="brand-identity__eyebrow">Sosyal Medya</p>
+										<h2 class="sm-detail__client">Purecontact Cosmetics</h2>
+									</div>
+									<span class="brand-identity__badge">04</span>
+								</header>
+								<div class="sm-detail__body">
+									<div class="sm-detail__text">
+
+										<p>
+											Purecontact, modern kozmetik dünyasını bilimsel içerikler, yüksek kalite standartları ve minimalist bir güzellik yaklaşımıyla bir araya getiren yenilikçi bir marka deneyimi sunar. Cilt bakım ürünleri, profesyonel kozmetik çözümleri ve doğal içerik odaklı formülleriyle Purecontact; saf temas, arınma ve etkili bakım konsepti üzerine kuruludur. Marka, her ürününde şeffaf içerik politikası, dermatolojik güvenlik ve sürdürülebilir üretim ilkelerini benimseyerek güzelliği daha ulaşılabilir, daha sağlıklı ve daha bilinçli bir hale getirir. Purecontact, modern yaşamın ihtiyaç duyduğu temiz, sade ve güçlü cilt bakımını yeniden yorumlar.
+										</p>
+										<div class="sm-detail__logo">
+											<img src="assets/purecontactlogo.png" alt="Purecontact Logo">
+										</div>
+									</div>
+								</div>
+								<div class="sm-detail__banner">
+									<img src="assets/purecontactbanner.jpg" alt="purecontact kampanya görseli">
+								</div>
+							</div>
+						</section>
+
+		<!-- Kurumsal Kimlik -->
+		<section class="brand-identity" id="kurumsal-kimlik">
+			<div class="brand-identity__inner">
+				<header class="brand-identity__header">
+					<div>
+						<p class="brand-identity__eyebrow">Marka & Kurumsal Kimlik</p>
+						<h2 class="sm-detail__client">Emerald Aesthetic Turkey</h2>
+					</div>
+					<span class="brand-identity__badge">01</span>
+				</header>
+				<p class="brand-identity__desc">
+					Logo, tipografi, renk paleti ve mekânsal deneyimi aynı hikâyede buluşturan bütünsel kimlik kurguları oluşturuyorum. Emerald Aesthetic Turkey, DR Bora Özkan ve Purecontact gibi markalarda olduğu gibi,
+					her temas noktasının aynı dili konuşmasını sağlayan stil rehberleri hazırlıyorum.
+				</p>
+
+				<div class="brand-identity__grid">
+					<article class="brand-card brand-card--emerald">
+						<img class="brand-card__logo-img" src="assets/emeraldlogo.png" alt="Emerald Aesthetic Turkey logosu">
+					</article>
+
+					<article class="brand-card brand-card--swatches">
+						<h3>Renk Paleti</h3>
+						<div class="swatch-list">
+							<div class="swatch" data-hex="#050505">
+								<span>#050505</span>
+							</div>
+							<div class="swatch swatch--light" data-hex="#DDDDDD">
+								<span>#DDDDDD</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="brand-card brand-card--lounge">
+						<img src="assets/emerald-kurumsal.webp" alt="Emerald Aesthetic lounge alanı">
+					</article>
+
+					<article class="brand-card brand-card--cards">
+						<img class="brand-card__mockup" src="assets/bora-ozkan-kartvizit.png" alt="Kartvizit görsel alanı">
+					</article>
+
+					<article class="brand-card brand-card--sketch">
+						<svg viewBox="0 0 120 120" aria-hidden="true">
+							<path d="M20 80c18-30 60-26 80-60M28 60c10 2 14-6 18-14M60 92c18-6 22-22 24-36" />
+						</svg>
+						<p>Hat illüstrasyonu, estetik çizgiyi kurumsal dile taşır.</p>
+					</article>
+
+					<article class="brand-card brand-card--signature">
+						<img class="signature__logo" src="assets/bora-ozkan-logo.png" alt="Monogram logo alanı">
+						<p class="signature__desc">Tipografik kontrast ve zarif monogram birleşimi.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- Kurumsal Kimlik 02 -->
+		<section class="brand-identity brand-identity--loveart" id="kurumsal-kimlik-2">
+			<div class="brand-identity__inner">
+				<header class="brand-identity__header">
+					<div>
+						<p class="brand-identity__eyebrow">Marka & Kurumsal Kimlik</p>
+						<h2 class="sm-detail__client">Loveart Beauty Center</h2>
+					</div>
+					<span class="brand-identity__badge">02</span>
+				</header>
+				<p class="brand-identity__desc">
+					Loveart Güzellik Salonu için logo, fiziksel dokunuşlar, kartvizitler ve dış cephe tipografisini tek bir grid üzerinde topladım. Renk kodu kartı dışındaki her alan, görsellerinizi hızlıca yerleştirebilmeniz için boş bırakılmıştır.
+				</p>
+
+				<div class="brand-identity__grid brand-identity__grid--loveart">
+					<article class="brand-card loveart-card loveart-card--logo">
+						<div class="loveart-card__label">Loveart Logo & Tipografi</div>
+						<div class="media-slot media-slot--logo" data-slot="logo">
+							<img
+								class="media-slot__img"
+								src="assets/loverart-kurumsal-logo.webp"
+								alt="Loveart logo placeholder"
+								loading="lazy">
+						</div>
+					</article>
+
+					<article class="brand-card loveart-card loveart-card--textile">
+						<div class="loveart-card__label">Spa Tekstili</div>
+						<div class="media-slot media-slot--tall" data-slot="textile">
+							<img
+								class="media-slot__img"
+								src="assets/loverart-kurumsal-havlu.webp"
+								alt="Spa tekstili görseli"
+								loading="lazy">
+						</div>
+					</article>
+
+					<article class="brand-card loveart-card loveart-card--stationery">
+						<div class="loveart-card__label">Kartvizit</div>
+						<div class="media-slot" data-slot="stationery">
+							<img
+								class="media-slot__img"
+								src="assets/loverart-kurumsal-kartvizit.webp"
+								alt="Kartvizit görsel alanı"
+								loading="lazy">
+						</div>
+					</article>
+
+					<article class="brand-card loveart-card loveart-card--facade">
+						<div class="loveart-card__label">Dış Cephe Uygulaması</div>
+						<div class="media-slot media-slot--wide" data-slot="facade">
+							<img
+								class="media-slot__img"
+								src="assets/loverart-kurumsal-tabela.webp"
+								alt="Dış cephe placeholder"
+								loading="lazy">
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- Logolar -->
+		<section class="logos" id="logolar">
+			<div class="logos__inner">
+				<header class="logos__header">
+					<p class="logos__eyebrow">Marka Uygulamaları</p>
+					<h2 class="sm-detail__client">Logo Tasarımları</h2>
+					<p class="sm-detail__desc">
+						Logo tasarımlarımın birkaç örneği; sektörlerin ruhuna uygun tipografi, sembol dili ve renk mimarisini tek çatı altında toplayan çözümler.
+					</p>
+				</header>
+				<div class="logos__grid">
+					<figure class="logo-card">
+						<img src="assets/bora-ozkan-logo.png" alt="Logo 01 placeholder" loading="lazy">
+						<figcaption>Dr. Bora Özkan</figcaption>
+					</figure>
+					<figure class="logo-card">
+						<img src="assets/dijitalsis-logo.png" alt="Logo 02 placeholder" loading="lazy">
+						<figcaption>Dijitalsis</figcaption>
+					</figure>
+					<figure class="logo-card">
+						<img src="assets/global-street-logo.png" alt="Logo 03 placeholder" loading="lazy">
+						<figcaption>Global Street</figcaption>
+					</figure>
+					<figure class="logo-card">
+						<img src="assets/longevity-logo.png" alt="Logo 04 placeholder" loading="lazy">
+						<figcaption>Longevity</figcaption>
+					</figure>
+				</div>
+			</div>
+		</section>
+
+		<!-- Poster & Broşürler -->
+		<section class="print-showcase" id="poster-brosur">
+			<div class="print-showcase__inner">
+				<header class="print-showcase__header">
+					<p class="print-showcase__eyebrow">Basılı Tasarım Seçkisi</p>
+					<h2 class="sm-detail__client">Poster & Broşürler</h2>
+					<p class="print-showcase__desc">
+						Baskı öncesi hazırlık, tipografik hiyerarşi ve fotoğraf seçimiyle güçlü bir anlatı kurduğum broşür ve poster tasarımlarından üç örnek.
+					</p>
+				</header>
+				<div class="print-slider" data-autoplay="true" data-interval="3000">
+					<div class="print-slider__track">
+						<figure class="print-card print-card--brochure">
+							<div class="print-card__label">Loveart Broşürü</div>
+							<img src="assets/broşür1.webp" alt="Loveart Broşürü placeholder" loading="lazy">
+						</figure>
+						<figure class="print-card print-card--brochure">
+							<div class="print-card__label">Dermaqualis Broşürü</div>
+							<img src="assets/broşür2.webp" alt="Dermaqualis Broşürü placeholder" loading="lazy">
+						</figure>
+						<figure class="print-card print-card--brochure">
+							<div class="print-card__label">Poster Tasarımcı</div>
+							<img src="assets/poster.png" alt="Poster Tasarımcı placeholder" loading="lazy">
+						</figure>
+					</div>
+					<div class="print-slider__controls" aria-label="Poster ve broşür kaydırma">
+						<button class="print-slider__btn print-slider__btn--prev" type="button" aria-label="Önceki">←</button>
+						<button class="print-slider__btn print-slider__btn--next" type="button" aria-label="Sonraki">→</button>
 					</div>
 				</div>
 			</div>
 		</section>
 
-				<!-- Emerland.png / Sosyal Medya Kart Galerisi -->
-				<section class="sm-gallery" id="sm-gallery-loveart">
-					<div class="sm-gallery__inner">
-						<div class="sm-gallery__grid">
-							<figure class="sm-shot" data-label="01">
-								<img src="assets/loveart-1.jpg" alt="Loveart sosyal medya görseli 01" loading="lazy">
-							</figure>
-							<figure class="sm-shot" data-label="02">
-								<img src="assets/sm-loveart-02.jpg" alt="Loveart sosyal medya görseli 02" loading="lazy">
-							</figure>
-							<figure class="sm-shot" data-label="03">
-								<img src="assets/sm-loveart-03.jpg" alt="Loveart sosyal medya görseli 03" loading="lazy">
-							</figure>
-							<figure class="sm-shot" data-label="04">
-								<img src="assets/sm-loveart-04.jpg" alt="Loveart sosyal medya görseli 04" loading="lazy">
-							</figure>
-							<figure class="sm-shot" data-label="05">
-								<img src="assets/sm-loveart-05.jpg" alt="Loveart sosyal medya görseli 05" loading="lazy">
-							</figure>
-							<figure class="sm-shot" data-label="06">
-								<img src="assets/sm-loveart-06.jpg" alt="Loveart sosyal medya görseli 06" loading="lazy">
-							</figure>
-						</div>
-					</div>
-				</section>
-
+		<button class="scroll-top" type="button" aria-label="Yukarı dön">
+			<span>↑</span>
+		</button>
+				
 		<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
 		<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 		<script src="app.js"></script>
